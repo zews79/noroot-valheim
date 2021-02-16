@@ -4,16 +4,14 @@ RUN apt-get update && \
 	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /home/valheim/data/
+RUN mkdir -p /opt/valheim
 
-WORKDIR /home/valheim
+WORKDIR /opt/valheim
 
-ADD entrypoint.sh /home/valheim/entrypoint.sh
-ADD start-server.sh /home/valheim/start-server.sh
+ADD entrypoint.sh /usr/local/bin/entrypoint.sh
+ADD start-server.sh /usr/local/bin/start-server.sh
 
-RUN chmod +x /home/valheim/entrypoint.sh && chmod +x /home/valheim/start-server.sh
-
-RUN chown -R 65534.65534 /home/valheim
+RUN chmod +x /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/start-server.sh
 
 EXPOSE 2456/udp
 EXPOSE 2456/tcp
@@ -27,7 +25,8 @@ ENV SERVER_PASSWORD=""
 ENV SERVER_WORLD="World"
 ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
-ENV HOME="/home/valheim"
+ENV HOME="/opt/valheim"
+ENV PATH=
 
 ENTRYPOINT  ["/bin/sh", "entrypoint.sh"]
 
