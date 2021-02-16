@@ -26,7 +26,6 @@ ENV SERVER_WORLD="World"
 ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
 ENV HOME="/opt/valheim"
-ENV PATH=
 
 ENTRYPOINT  ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
 
