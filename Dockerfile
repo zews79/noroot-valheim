@@ -5,7 +5,8 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 
-RUN mkdir -p /home/valheim/data/ && ulimit -n 2048
+# RUN mkdir -p /home/valheim/data/ && ulimit -n 2048
+RUN mkdir -p /home/valheim/data/
 
 WORKDIR /home/valheim
 
