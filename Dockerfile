@@ -28,6 +28,6 @@ ENV SERVER_PUBLIC=1
 ENV HOME="/opt/valheim"
 ENV PATH=
 
-ENTRYPOINT  ["/bin/sh", "entrypoint.sh"]
+ENTRYPOINT  ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
 
-CMD ["/bin/sh", "start-server.sh", "-n"]
+CMD ["/bin/sh", "/usr/local/bin/start-server.sh", "-n"]
