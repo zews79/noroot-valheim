@@ -14,6 +14,8 @@ ADD start-server.sh /home/valheim/start-server.sh
 
 RUN chmod +x /home/valheim/entrypoint.sh && chmod +x /home/valheim/start-server.sh
 
+RUN chown -R 65534.65534 /home/valheim
+
 EXPOSE 2456/udp
 EXPOSE 2456/tcp
 EXPOSE 2457/udp
