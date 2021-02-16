@@ -4,8 +4,6 @@ RUN apt-get update && \
 	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
 	rm -rf /var/lib/apt/lists/*
 
-
-# RUN mkdir -p /home/valheim/data/ && ulimit -n 2048
 RUN mkdir -p /home/valheim/data/
 
 WORKDIR /home/valheim
@@ -29,6 +27,7 @@ ENV SERVER_PASSWORD=""
 ENV SERVER_WORLD="World"
 ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
+ENV HOME="/home/valheim"
 
 ENTRYPOINT  ["/bin/sh", "entrypoint.sh"]
 
