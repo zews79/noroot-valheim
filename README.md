@@ -1,7 +1,7 @@
 # docker-valheim
 Light-weight docker server for [Valheim](https://store.steampowered.com/app/892970/Valheim/) based on [steamcmd](https://hub.docker.com/r/steamcmd/steamcmd).
 
-Docker image available at [https://hub.docker.com/r/nopor/valheim-server](https://hub.docker.com/r/nopor/valheim-server)
+Forked from https://github.com/nopor/docker-valheim
 
 ## Instructions
 Start the server with the following env vars:
