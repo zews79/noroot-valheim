@@ -29,8 +29,8 @@ ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
 ENV HOME="/opt/valheim"
 
-chown -R 65534:65534 /opt/valheim
-chown -R 65534:65534 /home/steam
+RUN chown -R 65534:65534 /opt/valheim
+RUN chown -R 65534:65534 /home/steam
 
 USER 65534
 
