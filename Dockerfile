@@ -1,11 +1,10 @@
 FROM cm2network/steamcmd:latest
 
 USER 0
+
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
 	rm -rf /var/lib/apt/lists/*
-
-USER 65534
 
 RUN mkdir -p /opt/valheim
 
@@ -30,6 +29,10 @@ ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
 ENV HOME="/opt/valheim"
 
+chown -R 65534:65534 /opt/valheim
+chown -R 65534:65534 /home/steam
+
+USER 65534
 
 ENTRYPOINT  ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
 
