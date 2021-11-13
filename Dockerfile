@@ -1,8 +1,9 @@
 FROM cm2network/steamcmd:latest
 
-#RUN apt-get update && \
-#	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
-#	rm -rf /var/lib/apt/lists/*
+USER 0
+RUN apt-get update && \
+	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
+	rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/valheim
 
@@ -26,6 +27,8 @@ ENV SERVER_WORLD="World"
 ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
 ENV HOME="/opt/valheim"
+
+USER 65534
 
 ENTRYPOINT  ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
 
