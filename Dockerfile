@@ -29,10 +29,9 @@ ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
 ENV HOME="/home/steam"
 
-RUN chown -R 65534:65534 /home/steam
-RUN chown -R 65534:65534 /tmp/dumps
+RUN chown -R 1000:1000 /home/steam
 
-USER 65534
+USER 1000
 
 ENTRYPOINT  ["/bin/sh", "/home/steam/entrypoint.sh"]
 
