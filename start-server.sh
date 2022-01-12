@@ -2,7 +2,7 @@ export temp_ldpath=$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/steam/valheim/linux64:$LD_LIBRARY_PATH
 export SteamAppId=892970
 
-cp /opt/valheim/linux64/steamclient.so /home/steam/valheim
+cp /home/steam/valheim/linux64/steamclient.so /home/steam/valheim
 
 export LD_LIBRARY_PATH=$temp_ldpath
 
