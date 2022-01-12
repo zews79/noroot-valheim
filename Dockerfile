@@ -6,14 +6,14 @@ RUN apt-get update && \
 	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /opt/valheim
+RUN mkdir -p /home/steam/valheim
 
-WORKDIR /opt/valheim
+#WORKDIR /opt/valheim
 
-ADD entrypoint.sh /usr/local/bin/entrypoint.sh
-ADD start-server.sh /usr/local/bin/start-server.sh
+ADD entrypoint.sh /home/steam/valheim/entrypoint.sh
+ADD start-server.sh /home/steam/valheim/start-server.sh
 
-RUN chmod +x /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/start-server.sh
+RUN chmod +x /home/steam/valheim/entrypoint.sh && chmod +x /home/steam/valheim/start-server.sh
 
 EXPOSE 2456/udp
 EXPOSE 2456/tcp
@@ -27,14 +27,13 @@ ENV SERVER_PASSWORD=""
 ENV SERVER_WORLD="World"
 ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
-ENV HOME="/opt/valheim"
+#ENV HOME="/opt/valheim"
 
-RUN chown -R 65534:65534 /opt/valheim
 RUN chown -R 65534:65534 /home/steam
 RUN chown -R 65534:65534 /tmp/dumps
 
 USER 65534
 
-ENTRYPOINT  ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT  ["/bin/sh", "/home/steam/valheim/entrypoint.sh"]
 
-CMD ["/bin/sh", "/usr/local/bin/start-server.sh", "-n"]
+CMD ["/bin/sh", "/home/steam/valheim/start-server.sh", "-n"]
