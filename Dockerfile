@@ -1,6 +1,6 @@
 FROM cm2network/steamcmd:latest
 
-#USER 0
+USER 0
 
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends libsdl2-2.0-0:i386 && \
@@ -33,7 +33,7 @@ RUN chown -R 65534:65534 /opt/valheim
 RUN chown -R 65534:65534 /home/steam
 RUN chown -R 65534:65534 /tmp/dumps
 
-#USER 65534
+USER 65534
 
 ENTRYPOINT  ["/bin/sh", "/usr/local/bin/entrypoint.sh"]
 
