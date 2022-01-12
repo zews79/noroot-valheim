@@ -10,10 +10,10 @@ RUN mkdir -p /home/steam/valheim
 
 #WORKDIR /opt/valheim
 
-ADD entrypoint.sh /home/steam/valheim/entrypoint.sh
-ADD start-server.sh /home/steam/valheim/start-server.sh
+ADD entrypoint.sh /home/steam/entrypoint.sh
+ADD start-server.sh /home/steam/start-server.sh
 
-RUN chmod +x /home/steam/valheim/entrypoint.sh && chmod +x /home/steam/valheim/start-server.sh
+RUN chmod +x /home/steam/entrypoint.sh && chmod +x /home/steam/start-server.sh
 
 EXPOSE 2456/udp
 EXPOSE 2456/tcp
@@ -27,7 +27,7 @@ ENV SERVER_PASSWORD=""
 ENV SERVER_WORLD="World"
 ENV SERVER_PORT=2456
 ENV SERVER_PUBLIC=1
-#ENV HOME="/opt/valheim"
+ENV HOME="/home/steam"
 
 RUN chown -R 65534:65534 /home/steam
 RUN chown -R 65534:65534 /tmp/dumps
