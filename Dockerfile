@@ -34,6 +34,6 @@ RUN chown -R 65534:65534 /tmp/dumps
 
 USER 65534
 
-ENTRYPOINT  ["/bin/sh", "/home/steam/valheim/entrypoint.sh"]
+ENTRYPOINT  ["/bin/sh", "/home/steam/entrypoint.sh"]
 
-CMD ["/bin/sh", "/home/steam/valheim/start-server.sh", "-n"]
+CMD ["/bin/sh", "/home/steam/start-server.sh", "-n"]
